@@ -1,8 +1,7 @@
-import { getRandomToken } from "./utils";
+import Pages from "./Pages";
 
 const App = () => {
-  console.log(getRandomToken());
-  return <div>App</div>;
+  return <Pages />;
 };
 
 export default App;
