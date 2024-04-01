@@ -21,10 +21,10 @@ const LoginForm = () => {
   const onLogin = (formData) => {
     setLoading(true);
     const findUser = checkRegisterdUser(formData.number, formData.password);
+    if (findUser !== undefined) saveLoginData(findUser);
 
     setTimeout(() => {
       if (findUser !== undefined) {
-        saveLoginData(findUser);
         toast.success("Successfully logged in");
         navigate("/");
         setLoading(false);

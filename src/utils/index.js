@@ -1,3 +1,4 @@
+// Genarate a random token for login user
 const getRandomToken = () => {
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -8,6 +9,7 @@ const getRandomToken = () => {
   return token;
 };
 
+//Check the login user exist on register DB or not
 const checkRegisterdUser = (num, pass) => {
   const registeredDB = JSON.parse(localStorage.getItem("registerData"));
 
