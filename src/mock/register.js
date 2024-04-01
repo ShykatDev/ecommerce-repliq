@@ -1,10 +1,14 @@
-const registerData = [
-  {
-    mobile: "01879866202",
-    firstName: "Shykat",
-    lastName: "Raha",
-    password: "shykat202",
-  },
-];
+let registerData = [];
 
-export { registerData };
+const saveRegisterData = () => {
+  localStorage.setItem("registerData", JSON.stringify(registerData));
+};
+
+const loadRegisterData = () => {
+  const storedData = localStorage.getItem("registerData");
+  if (storedData) {
+    registerData = JSON.parse(storedData);
+  }
+};
+
+export { registerData, saveRegisterData, loadRegisterData };
