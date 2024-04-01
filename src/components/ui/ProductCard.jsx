@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import { FaCartShopping, FaStar } from "react-icons/fa6";
 
 const ProductCard = ({ product }) => {
-  const { title, description, rating, thumbnail, price, tag } = product;
+  const { id, title, description, rating, thumbnail, price, tag } = product;
 
   const review = Math.round(rating);
 
   return (
     <div className="px-1 md:px-2 pb-3 md:pb-6">
-      <div className="bg-white bg-opacity-50 border-neutral-300 border rounded-xl overflow-hidden">
+      <div className="bg-white bg-opacity-50 hover:bg-opacity-75 duration-300 border-neutral-300 border rounded-xl overflow-hidden">
         <div className="relative">
-          <div className="flex justify-center items-center h-[18rem] ">
-            <Link to="/product-view" className="h-full outline-none">
+          <div className="flex justify-center items-center min-h-[18rem] border-b border-neutral-300">
+            <Link to={`/product/${id}`} className="h-full outline-none">
               <img src={thumbnail} alt="" className="h-full object-cover" />
             </Link>
           </div>
@@ -35,7 +35,10 @@ const ProductCard = ({ product }) => {
         <div className="p-3 flex flex-col gap-1">
           <p className="text-lg font-semibold text-lime-600"> {price} Tk</p>
 
-          <Link to="/product-view" className="text-lg font-medium">
+          <Link
+            to={`/product/${id}`}
+            className="text-lg font-medium line-clamp-1"
+          >
             {title}
           </Link>
 
@@ -50,7 +53,9 @@ const ProductCard = ({ product }) => {
             <p className="text-sm font-medium">{rating}</p>
           </div>
 
-          <p className="line-clamp-2 text-sm text-textLight">{description}</p>
+          <p className="line-clamp-1 sm:line-clamp-2 text-sm text-textLight">
+            {description}
+          </p>
           <button className="w-full rounded-full border border-lime-600 hover:bg-lime-600 mt-3 py-2 duration-300 hover:text-white">
             Buy Now
           </button>

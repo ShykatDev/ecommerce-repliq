@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-[#E7E7E3];
   }

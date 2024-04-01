@@ -3,7 +3,7 @@ import { header1, header2 } from "../../assets";
 
 const Header = () => {
   return (
-    <div className="container mt-[10vh] flex items-center justify-between gap-10 flex-col lg:flex-row">
+    <div className="container mt-[10vh] lg:h-[70vh] flex items-center justify-between gap-10 flex-col lg:flex-row">
       <div className="w-full lg:w-1/2 xl:w-2/5">
         <div className=" flex gap-3 flex-wrap">
           <div className="p-2 border border-borderColor rounded-md flex items-center gap-3 text-xs xl:text-sm">
@@ -34,11 +34,11 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="w-1/2 grid grid-cols-3 items-end gap-6 h-full">
+      <div className="w-full lg:w-1/2 xl:w-2/5 grid grid-cols-3 items-end gap-6 pt=6">
         <img
           src={header1}
           alt="header1"
-          className="col-span-2 h-full object-cover border border-neutral-400 rounded-lg"
+          className="col-span-2 w-full object-cover border border-neutral-400 rounded-lg"
         />
         <img
           src={header2}

@@ -1,3 +1,5 @@
+import { products } from "../mock/products.json";
+
 // Genarate a random token for login user
 const getRandomToken = () => {
   const characters =
@@ -19,4 +21,12 @@ const checkRegisterdUser = (num, pass) => {
   return findUser;
 };
 
-export { getRandomToken, checkRegisterdUser };
+const getSingleProduct = (id) => {
+  const singleProduct = products.find((product) => {
+    return product.id === +id;
+  });
+
+  return singleProduct;
+};
+
+export { getRandomToken, checkRegisterdUser, getSingleProduct };
