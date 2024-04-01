@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-  body {
-    @apply bg-neutral-100;
-  }
   .input-field {
     @apply w-full border border-borderColor p-2.5 focus:border-brand duration-200 rounded-md outline-none;
   }
+}
+.active {
+  @apply font-semibold text-title;
 }
