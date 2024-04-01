@@ -11,4 +11,4 @@ const loadRegisterData = () => {
   }
 };
 
-export { registerData, saveRegisterData, loadRegisterData };
+export { registerData };

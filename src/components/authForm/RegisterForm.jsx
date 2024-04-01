@@ -1,14 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import Field from "../common/Field";
 import { useForm } from "react-hook-form";
-import { registerData, saveRegisterData } from "../../mock/register";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../context";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { saveRegisterData } = useContext(AuthContext);
 
   const {
     register,
@@ -19,8 +20,7 @@ const RegisterForm = () => {
   const onRegister = (formData) => {
     setLoading(true);
     setTimeout(() => {
-      registerData.push(formData);
-      saveRegisterData();
+      saveRegisterData(formData);
       setLoading(false);
       toast.success("Your account has been created");
       navigate("/login");
