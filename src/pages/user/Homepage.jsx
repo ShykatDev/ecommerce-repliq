@@ -1,5 +1,13 @@
+import Header from "../../components/ui/Header";
+import PopularProducts from "../../components/ui/PopularProducts";
+
 const Homepage = () => {
-  return <div className="mt-[8vh] container">Homepage</div>;
+  return (
+    <>
+      <Header />
+      <PopularProducts />
+    </>
+  );
 };
 
 export default Homepage;

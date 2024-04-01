@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa6";
 const Login = () => {
   return (
     <div className=" container h-screen flex flex-col justify-center items-center">
-      <div className="bg-white w-4/5 rounded-2xl p-10 border border-borderColor">
+      <div className="bg-white bg-opacity-50 w-4/5 rounded-2xl p-10 border border-borderColor">
         <img src={logo} alt="logo" width={50} className="mb-6" />
         <div className=" flex justify-between gap-6 items-start ">
           <div className="w-1/2 flex flex-col gap-3">

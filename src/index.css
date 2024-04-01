@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply bg-[#E7E7E3];
+  }
   .input-field {
     @apply w-full border border-borderColor p-2.5 focus:border-brand duration-200 rounded-md outline-none;
   }

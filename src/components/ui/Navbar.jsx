@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="h-[8vh] w-full fixed top-0 left-0 bg-white border-b border-borderColor bg-opacity-5 backdrop-blur-md flex items-center">
+    <nav className="h-[8vh] w-full fixed top-0 left-0 bg-white border-b border-borderColor bg-opacity-50 backdrop-blur-md flex items-center">
       <div className="container flex items-center justify-between">
         <div className="flex items-center gap-10">
           <Link to="/" className="logo flex items-center gap-2">
