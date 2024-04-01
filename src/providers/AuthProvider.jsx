@@ -17,8 +17,14 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  const removeLoginData = () => {
+    setLoginData({});
+  };
+
   return (
-    <AuthContext.Provider value={{ saveRegisterData, saveLoginData }}>
+    <AuthContext.Provider
+      value={{ saveRegisterData, saveLoginData, removeLoginData }}
+    >
       {children}
     </AuthContext.Provider>
   );

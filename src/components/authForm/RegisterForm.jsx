@@ -49,7 +49,13 @@ const RegisterForm = () => {
       </Field>
       <Field regId="number" error={errors.number}>
         <input
-          {...register("number", { required: "Mobile Number is required" })}
+          {...register("number", {
+            required: "Mobile Number is required",
+            minLength: {
+              value: 11,
+              message: "Mobile number must 11 characters long",
+            },
+          })}
           type="number"
           placeholder="Mobile Number"
           name="number"
