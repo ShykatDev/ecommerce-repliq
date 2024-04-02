@@ -1,10 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context";
 import CartItem from "../../components/ui/CartItem";
 import { actions } from "../../actions";
+import Confirmation from "../../components/ui/Confirmation";
 
 const Cart = () => {
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch, delConfirm, setDelConfirm } =
+    useContext(CartContext);
+  const [delPopup, setDelPopup] = useState(null);
+
+  let totalPrice = state.cart.reduce(
+    (total, el) => total + el.price * el.cartQuantity,
+    0
+  );
 
   let content;
 
@@ -12,6 +20,20 @@ const Cart = () => {
     dispatch({
       type: actions.CART_REMOVED,
       id: itemID,
+    });
+  };
+
+  const increaseItem = (item) => {
+    dispatch({
+      type: actions.CART_ITEM_INCREASE,
+      item,
+    });
+  };
+
+  const decreaseItem = (item) => {
+    dispatch({
+      type: actions.CART_ITEM_DECREASE,
+      item,
     });
   };
 
@@ -26,6 +48,7 @@ const Cart = () => {
   } else {
     content = (
       <div className="container mt-[10vh]">
+        {delPopup && <Confirmation delPopup={delPopup} />}
         <h2 className="text-4xl font-semibold mb-6">Cart Items</h2>
 
         <div className="flex flex-col-reverse lg:flex-row gap-10 items-start">
@@ -38,7 +61,18 @@ const Cart = () => {
                 </span>
               </p>
               <div>
-                <button className="underline text-red-500">Delete All</button>
+                <button
+                  onClick={() => {
+                    setDelConfirm({
+                      ...delConfirm,
+                      status: true,
+                      mode: "deleteAll",
+                    });
+                  }}
+                  className="underline text-red-500"
+                >
+                  Delete All
+                </button>
               </div>
             </div>
 
@@ -50,6 +84,9 @@ const Cart = () => {
                       cartElement={el}
                       key={el.id}
                       handleDelete={deleteItem}
+                      handleIncrease={increaseItem}
+                      handleDecrease={decreaseItem}
+                      setDelPopup={setDelPopup}
                     />
                   );
                 })}
@@ -59,7 +96,7 @@ const Cart = () => {
             <p className="text-xl font-semibold">Summury Order</p>
             <div className="flex justify-between items-center my-3">
               <p>Subtotal:</p>
-              <p className="text-xl font-semibold">$ price</p>
+              <p className="text-xl font-semibold">$ {totalPrice}</p>
             </div>
 
             <button className="w-full bg-neutral-950 rounded-full py-3 text-neutral-100">

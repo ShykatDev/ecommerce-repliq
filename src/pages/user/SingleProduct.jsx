@@ -1,6 +1,12 @@
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../../utils";
-import { FaMinus, FaPlus, FaStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
+import toast from "react-hot-toast";
+import { actions } from "../../actions";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../context";
+import { BsCartDashFill } from "react-icons/bs";
+import { FaCartPlus } from "react-icons/fa6";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -8,6 +14,38 @@ const SingleProduct = () => {
   const { title, description, rating, thumbnail, price, tag } = product;
 
   const review = Math.round(rating);
+
+  const [inCart, setInCart] = useState(false);
+  const { state, dispatch } = useContext(CartContext);
+
+  useEffect(() => {
+    state.cart.some((element) => {
+      if (element.id === +id) {
+        setInCart(true);
+      }
+    });
+  }, [id, state.cart]);
+
+  const handleAddToCart = () => {
+    if (!inCart) {
+      dispatch({
+        type: actions.CART_ADDED,
+        item: { ...product, cartQuantity: 1 },
+      });
+
+      toast.success("Product added to cart");
+    }
+  };
+
+  const handleRemove = () => {
+    dispatch({
+      type: actions.CART_REMOVED,
+      id: product.id,
+    });
+
+    setInCart(false);
+    toast.success("Product removed from cart");
+  };
 
   return (
     <div className="mt-[10vh] container flex items-center justify-between min-h-fit">
@@ -34,25 +72,25 @@ const SingleProduct = () => {
           <p className=" font-medium">{rating} reviews</p>
         </div>
 
-        <div className="my-4 flex items-center bg-white border border-borderColor rounded-lg overflow-hidden">
-          <div className="size-14 flex justify-center items-center bg-white cursor-pointer border-r border-borderColor">
-            <FaMinus />
-          </div>
-          <div className="size-14 flex justify-center items-center bg-white text-xl">
-            0
-          </div>
-          <div className="size-14 flex justify-center items-center bg-white cursor-pointer border-l border-borderColor">
-            <FaPlus />
-          </div>
-        </div>
-
-        <div className="flex w-1/2 gap-3">
+        <div className="mt-3 flex w-3/4 gap-3">
           <p className="w-1/2 py-2 text-center rounded-md border border-lime-600 text-lime-600 font-semibold text-xl">
             {price} tk
           </p>
-          <button className="w-1/2 py-2 bg-title rounded-md text-neutral-200">
-            Buy Now
-          </button>
+          {inCart ? (
+            <button
+              onClick={handleRemove}
+              className="w-1/2 py-2 bg-title text-neutral-200 rounded-md flex items-center justify-center gap-2"
+            >
+              <BsCartDashFill /> Remove from cart
+            </button>
+          ) : (
+            <button
+              onClick={handleAddToCart}
+              className="w-1/2 py-2 bg-lime-400 rounded-md flex items-center justify-center gap-2 font-semibold"
+            >
+              <FaCartPlus /> Add to cart
+            </button>
+          )}
         </div>
       </div>
     </div>
