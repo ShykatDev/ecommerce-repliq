@@ -10,6 +10,7 @@ import Footer from "./components/ui/Footer";
 import SingleProduct from "./pages/user/SingleProduct";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import Cart from "./pages/user/Cart";
+import Products from "./pages/user/Products";
 
 const Pages = () => {
   return (
@@ -25,6 +26,7 @@ const Pages = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
       <Subscribe />
       <Footer />
