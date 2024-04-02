@@ -1,5 +1,6 @@
 import { createContext } from "react";
 
 const AuthContext = createContext();
+const CartContext = createContext();
 
-export { AuthContext };
+export { AuthContext, CartContext };

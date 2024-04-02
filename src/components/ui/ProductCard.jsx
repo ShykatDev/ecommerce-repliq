@@ -1,10 +1,35 @@
 import { Link } from "react-router-dom";
-import { FaCartShopping, FaStar } from "react-icons/fa6";
+import { FaCartPlus, FaCartShopping, FaStar } from "react-icons/fa6";
+import { useContext, useState, useEffect } from "react";
+import { CartContext } from "../../context";
+import { actions } from "../../actions";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
   const { id, title, description, rating, thumbnail, price, tag } = product;
 
   const review = Math.round(rating);
+  const [inCart, setInCart] = useState(false);
+  const { state, dispatch } = useContext(CartContext);
+
+  useEffect(() => {
+    state.cart.some((element) => {
+      if (element.id === +id) {
+        setInCart(true);
+      }
+    });
+  }, [id, state.cart]);
+
+  const handleAddToCart = () => {
+    if (!inCart) {
+      dispatch({
+        type: actions.CART_ADDED,
+        item: { ...product, cartQuantity: 1 },
+      });
+
+      toast.success("Product added to the cart");
+    }
+  };
 
   return (
     <div className="px-1 md:px-2 pb-3 md:pb-6">
@@ -25,9 +50,21 @@ const ProductCard = ({ product }) => {
             )}
 
             <div className="flex justify-between items-center gap-1 flex-wrap">
-              <div className="cursor-pointer p-2 bg-white rounded-full border z-20">
-                <FaCartShopping className="" />
-              </div>
+              {inCart ? (
+                <div className="cursor-pointer p-2 bg-lime-300 rounded-full border z-20 group relative">
+                  <FaCartShopping className="" />
+                  <small className="absolute hidden group-hover:block w-28 text-center rounded-md top-2 bg-white px-1 right-10 border border-borderColor">
+                    Already in cart
+                  </small>
+                </div>
+              ) : (
+                <div
+                  onClick={handleAddToCart}
+                  className="cursor-pointer p-2 bg-white rounded-full border z-20"
+                >
+                  <FaCartPlus className="" />
+                </div>
+              )}
             </div>
           </div>
         </div>

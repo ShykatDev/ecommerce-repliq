@@ -3,7 +3,7 @@ import { avatar, logo } from "../../assets";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context";
+import { AuthContext, CartContext } from "../../context";
 import toast from "react-hot-toast";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
   const { removeLoginData } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(false);
   const { auth, loginUser } = useAuth();
+  const { state } = useContext(CartContext);
 
   useEffect(() => {
     if (auth !== undefined) {
@@ -59,12 +60,12 @@ const Navbar = () => {
             />
           </div>
           <ul className="flex items-center gap-6">
-            <li className="relative">
+            <Link to="/cart" className="relative">
               <FaCartShopping className="text-xl" />
               <span className="absolute -top-4 -right-4 font-semibold bg-white text-lime-500 px-1 rounded-lg">
-                1
+                {state.cart.length}
               </span>
-            </li>
+            </Link>
             {isLogin ? (
               <div className="group relative cursor-pointer">
                 <img src={avatar} alt="" width={35} className="rounded-full" />

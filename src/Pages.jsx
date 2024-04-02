@@ -9,6 +9,7 @@ import Subscribe from "./components/ui/Subscribe";
 import Footer from "./components/ui/Footer";
 import SingleProduct from "./pages/user/SingleProduct";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import Cart from "./pages/user/Cart";
 
 const Pages = () => {
   return (
@@ -23,6 +24,7 @@ const Pages = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Subscribe />
       <Footer />
