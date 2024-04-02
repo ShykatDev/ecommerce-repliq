@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import { logo } from "../../assets";
-import LoginForm from "../../components/authForm/LoginForm";
-import { FaArrowRight } from "react-icons/fa6";
+import AdminLoginForm from "../../components/authForm/AdminLoginForm";
 
-const Login = () => {
+const AdminLogin = () => {
   return (
     <div className=" container h-screen flex flex-col justify-center items-center">
       <div className="bg-white bg-opacity-50 w-4/5 rounded-2xl p-10 border border-borderColor">
@@ -12,28 +10,19 @@ const Login = () => {
           <div className="w-1/2 flex flex-col gap-3">
             <h2 className="text-xl font-semibold md:text-3xl">
               Login
-              <span className="text-neutral-400"> as a user</span>
+              <span className="text-neutral-400"> as an admin</span>
             </h2>
             <p className="text-text">
               Use your registered email address and password.
             </p>
           </div>
           <div className="w-1/2">
-            <LoginForm />
+            <AdminLoginForm />
           </div>
         </div>
-      </div>
-      <div className="w-4/5">
-        <Link
-          to="/admin-login"
-          className="flex justify-start items-center gap-2 py-2.5 font-medium"
-        >
-          <span className="underline">Login as a Admin</span>{" "}
-          <FaArrowRight className="text-sm" />
-        </Link>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default AdminLogin;

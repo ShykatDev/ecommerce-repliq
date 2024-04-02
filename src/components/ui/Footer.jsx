@@ -5,7 +5,10 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 
-const Footer = () => {
+const Footer = ({ role }) => {
+  if (role === "admin") {
+    return null;
+  }
   return (
     <div className="p-10 mt-10">
       <div className="container flex flex-col md:flex-row justify-between md:items-end gap-10">

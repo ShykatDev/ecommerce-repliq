@@ -8,7 +8,10 @@ const Register = () => {
         <img src={logo} alt="logo" width={50} className="mb-6" />
         <div className=" flex justify-between gap-6 items-start ">
           <div className="w-1/2 flex flex-col gap-3">
-            <h2 className="text-5xl font-semibold text-title">Register</h2>
+            <h2 className="text-xl font-semibold md:text-3xl">
+              Register
+              <span className="text-neutral-400"> as a user</span>
+            </h2>
             <p className="text-text">Use your valid information to register.</p>
           </div>
           <div className="w-1/2">

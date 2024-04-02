@@ -1,4 +1,7 @@
-const Subscribe = () => {
+const Subscribe = ({ role }) => {
+  if (role === "admin") {
+    return null;
+  }
   return (
     <div className="container my-10">
       <div className=" bg-gradient-to-r from-neutral-900 to-neutral-700 rounded-2xl py-16 px-10 flex justify-between md:items-end flex-col md:flex-row gap-10">

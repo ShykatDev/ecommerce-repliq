@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getSingleProduct } from "../../utils";
 import { FaStar } from "react-icons/fa6";
 import toast from "react-hot-toast";
@@ -6,7 +6,8 @@ import { actions } from "../../actions";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context";
 import { BsCartDashFill } from "react-icons/bs";
-import { FaCartPlus } from "react-icons/fa6";
+import { FaCartPlus, FaBagShopping } from "react-icons/fa6";
+import { useAuth } from "../../hooks/useAuth";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -14,9 +15,9 @@ const SingleProduct = () => {
   const { title, description, rating, thumbnail, price, tag } = product;
 
   const review = Math.round(rating);
-
+  const { auth } = useAuth();
   const [inCart, setInCart] = useState(false);
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch, checkout, setCheckout } = useContext(CartContext);
 
   useEffect(() => {
     state.cart.some((element) => {
@@ -47,6 +48,11 @@ const SingleProduct = () => {
     toast.success("Product removed from cart");
   };
 
+  const handleCheckout = (element) => {
+    if (auth === undefined) toast.error("Please login first");
+    setCheckout({ ...checkout, mode: "single", items: element });
+  };
+
   return (
     <div className="mt-[10vh] container flex items-center justify-between min-h-fit">
       <div className="w-1/2 flex justify-center ">
@@ -58,7 +64,12 @@ const SingleProduct = () => {
             New
           </p>
         )}
-        <h2 className="font-semibold text-title text-3xl">{title}</h2>
+        <div className="w-full flex justify-between items-center">
+          <h2 className="font-semibold text-title text-3xl">{title}</h2>
+          <p className="py-2 text-center rounded-md  text-lime-600 font-bold text-2xl">
+            {price} tk
+          </p>
+        </div>
         <p className="text-text">{description}</p>
 
         <div className="flex gap-1 items-center">
@@ -73,9 +84,6 @@ const SingleProduct = () => {
         </div>
 
         <div className="mt-3 flex w-3/4 gap-3">
-          <p className="w-1/2 py-2 text-center rounded-md border border-lime-600 text-lime-600 font-semibold text-xl">
-            {price} tk
-          </p>
           {inCart ? (
             <button
               onClick={handleRemove}
@@ -91,6 +99,15 @@ const SingleProduct = () => {
               <FaCartPlus /> Add to cart
             </button>
           )}
+
+          <Link
+            to="/checkout"
+            onClick={() => handleCheckout(product)}
+            className="flex items-center justify-center rounded-md gap-2 w-1/2 bg-title font-semibold text-neutral-200"
+          >
+            <FaBagShopping />
+            <span>Buy Now</span>
+          </Link>
         </div>
       </div>
     </div>

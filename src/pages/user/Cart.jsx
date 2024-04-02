@@ -3,11 +3,16 @@ import { CartContext } from "../../context";
 import CartItem from "../../components/ui/CartItem";
 import { actions } from "../../actions";
 import Confirmation from "../../components/ui/Confirmation";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useAuth } from "../../hooks/useAuth";
 
 const Cart = () => {
   const { state, dispatch, delConfirm, setDelConfirm } =
     useContext(CartContext);
   const [delPopup, setDelPopup] = useState(null);
+  const { auth } = useAuth();
+  const { setCheckout, checkout } = useContext(CartContext);
 
   let totalPrice = state.cart.reduce(
     (total, el) => total + el.price * el.cartQuantity,
@@ -37,6 +42,11 @@ const Cart = () => {
     });
   };
 
+  const handleCheckout = (element) => {
+    if (auth === undefined) toast.error("Please login first");
+    setCheckout({ ...checkout, mode: "multiple", items: element });
+  };
+
   if (state.cart.length === 0) {
     content = (
       <div className="container mt-[10vh] min-h-[20vh]">
@@ -48,7 +58,9 @@ const Cart = () => {
   } else {
     content = (
       <div className="container mt-[10vh]">
-        {delPopup && <Confirmation delPopup={delPopup} />}
+        {/* Delete confirmation */}
+        <Confirmation delPopup={delPopup} />
+
         <h2 className="text-4xl font-semibold mb-6">Cart Items</h2>
 
         <div className="flex flex-col-reverse lg:flex-row gap-10 items-start">
@@ -99,9 +111,13 @@ const Cart = () => {
               <p className="text-xl font-semibold">$ {totalPrice}</p>
             </div>
 
-            <button className="w-full bg-neutral-950 rounded-full py-3 text-neutral-100">
+            <Link
+              to="/checkout"
+              onClick={() => handleCheckout(state.cart)}
+              className="w-full block text-center bg-neutral-950 rounded-full py-3 text-neutral-100"
+            >
               Buy Now ({state.cart.length})
-            </button>
+            </Link>
           </div>
         </div>
       </div>

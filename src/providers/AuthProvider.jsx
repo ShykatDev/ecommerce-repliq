@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AuthContext } from "../context";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { getRandomToken } from "../utils";
@@ -5,6 +6,7 @@ import { getRandomToken } from "../utils";
 const AuthProvider = ({ children }) => {
   const [regData, setRegData] = useLocalStorage("registerData", []);
   const [loginData, setLoginData] = useLocalStorage("loginData", {});
+  const [showNav, setShowNav] = useState(true);
 
   const saveRegisterData = (formData) => {
     setRegData([...regData, formData]);
@@ -23,7 +25,13 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ saveRegisterData, saveLoginData, removeLoginData }}
+      value={{
+        saveRegisterData,
+        saveLoginData,
+        removeLoginData,
+        showNav,
+        setShowNav,
+      }}
     >
       {children}
     </AuthContext.Provider>

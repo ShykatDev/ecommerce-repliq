@@ -1,5 +1,6 @@
 import { FaBagShopping, FaCircleCheck } from "react-icons/fa6";
 import { header1, header2 } from "../../assets";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -29,9 +30,12 @@ const Header = () => {
           elit. Pariatur dignissimos facilis aperiam.
         </p>
         <div className="mt-6 flex gap-6">
-          <button className="px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-2.5 text-sm sm:text-base border rounded-md flex items-center gap-2 duration-300 bg-neutral-900 text-neutral-100 hover:shadow-lg">
+          <Link
+            to="products"
+            className="px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-2.5 text-sm sm:text-base border rounded-md flex items-center gap-2 duration-300 bg-neutral-900 text-neutral-100 hover:shadow-lg"
+          >
             <FaBagShopping /> Shop Now
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full lg:w-1/2 xl:w-2/5 grid grid-cols-3 items-end gap-6 pt=6">
