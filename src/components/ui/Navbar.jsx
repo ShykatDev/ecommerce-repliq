@@ -38,7 +38,7 @@ const Navbar = ({ role }) => {
     setSearchKey(e.target.value);
   };
 
-  if (role === "admin") {
+  if (role) {
     return null;
   }
 
@@ -77,7 +77,7 @@ const Navbar = ({ role }) => {
             <ul className="flex items-center gap-6">
               <Link to="/cart" className="relative">
                 <FaCartShopping className="text-xl" />
-                <span className="absolute -top-4 -right-4 font-semibold bg-white text-lime-500 px-1 rounded-lg">
+                <span className="absolute -top-4 -right-4 font-medium bg-white text-lime-500 px-1 rounded-lg">
                   {state.cart.length}
                 </span>
               </Link>

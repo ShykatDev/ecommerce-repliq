@@ -70,7 +70,7 @@ const Checkout = () => {
           <div className="px-20 py-10 bg-white rounded-lg border border-borderColor">
             <div className="flex items-center gap-2 text-3xl">
               <FaCircleCheck className="text-green-500" />
-              <h2 className="font-semibold">Order Received</h2>
+              <h2 className="font-medium">Order Received</h2>
             </div>
             <div className="mt-4">
               <h2>Shipping Address</h2>
@@ -104,7 +104,7 @@ const Checkout = () => {
             <div className="mt-6 flex justify-end">
               <p
                 onClick={() => navigate("/")}
-                className="px-4 py-1 bg-red-500 rounded-md text-white font-semibold cursor-pointer"
+                className="px-4 py-1 bg-red-500 rounded-md text-white font-medium cursor-pointer"
               >
                 Close
               </p>
@@ -117,11 +117,11 @@ const Checkout = () => {
           <div className="w-full md:w-1/2 pr-6 border-r border-borderColor">
             <div className="flex items-center gap-3 mb-10">
               <img src={logo} alt="logo" width={25} />
-              <p className="text-xl font-semibold">Megamart</p>
+              <p className="text-xl font-medium">Megamart</p>
             </div>
 
             <p>Pay Amount</p>
-            <h2 className="text-4xl font-semibold">
+            <h2 className="text-4xl font-medium">
               {checkout.mode === "single" && checkout.items.price} Tk
             </h2>
 
@@ -135,11 +135,11 @@ const Checkout = () => {
                 </div>
                 <div className="flex items-start justify-between w-full">
                   <div>
-                    <h2 className="font-semibold">{checkout.items.title}</h2>
+                    <h2 className="font-medium">{checkout.items.title}</h2>
                     <p>Qty: 1</p>
                   </div>
 
-                  <p className="font-semibold">{checkout.items.price} tk</p>
+                  <p className="font-medium">{checkout.items.price} tk</p>
                 </div>
               </div>
             )}
@@ -156,11 +156,11 @@ const Checkout = () => {
                     </div>
                     <div className="flex items-start justify-between w-full">
                       <div>
-                        <h2 className="font-semibold">{item.title}</h2>
+                        <h2 className="font-medium">{item.title}</h2>
                         <p>Qty: {item.cartQuantity}</p>
                       </div>
 
-                      <p className="font-semibold">{item.price} tk</p>
+                      <p className="font-medium">{item.price} tk</p>
                     </div>
                   </div>
                 );
@@ -169,9 +169,9 @@ const Checkout = () => {
             <div className="border-t border-borderColor pl-14 pt-3 flex justify-between items-center">
               <p>Subtotal</p>
               {checkout.mode === "single" ? (
-                <p className="font-semibold">{checkout.items.price} tk</p>
+                <p className="font-medium">{checkout.items.price} tk</p>
               ) : (
-                <p className="font-semibold">
+                <p className="font-medium">
                   {checkout.items.reduce(
                     (total, item) => total + item.price * item.cartQuantity,
                     0
@@ -184,7 +184,7 @@ const Checkout = () => {
               <p className="text-neutral-400">80 tk</p>
             </div>
             <div className="border-t border-borderColor pl-14 pt-3 flex justify-between items-center">
-              <p className="font-semibold">Total Due</p>
+              <p className="font-medium">Total Due</p>
               <p className="font-bold">{totalPay} tk</p>
             </div>
           </div>
@@ -198,7 +198,7 @@ const Checkout = () => {
             </button>
 
             <div className="mt-6">
-              <p className="font-semibold">Shipping Information</p>
+              <p className="font-medium">Shipping Information</p>
               <form className="mt-3">
                 <input
                   type="email"
@@ -239,7 +239,7 @@ const Checkout = () => {
                 <button
                   type="button"
                   onClick={handleConfirm}
-                  className="w-full py-2.5 bg-title text-neutral-200 font-semibold rounded-md mt-3"
+                  className="w-full py-2.5 bg-title text-neutral-200 font-medium rounded-md mt-3"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">

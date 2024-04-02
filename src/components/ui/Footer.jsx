@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa6";
 
 const Footer = ({ role }) => {
-  if (role === "admin") {
+  if (role) {
     return null;
   }
   return (
@@ -14,7 +14,7 @@ const Footer = ({ role }) => {
       <div className="container flex flex-col md:flex-row justify-between md:items-end gap-10">
         <div className="flex gap-10">
           <div>
-            <p className="text-xl font-semibold underline">About</p>
+            <p className="text-xl font-medium underline">About</p>
             <ul className="mt-3">
               <li>About</li>
               <li>Meet Out Team</li>
@@ -23,7 +23,7 @@ const Footer = ({ role }) => {
           </div>
 
           <div>
-            <p className="text-xl font-semibold underline">Support</p>
+            <p className="text-xl font-medium underline">Support</p>
             <ul className="mt-3">
               <li>Shipping</li>
               <li>Return</li>
@@ -33,7 +33,7 @@ const Footer = ({ role }) => {
         </div>
 
         <div>
-          <p className="text-xl font-semibold underline">Social Media</p>
+          <p className="text-xl font-medium underline">Social Media</p>
 
           <div className="flex gap-3 md:justify-end mt-3">
             <FaFacebookF />

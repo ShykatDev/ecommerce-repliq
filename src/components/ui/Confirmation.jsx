@@ -17,7 +17,7 @@ const Confirmation = ({ delPopup }) => {
       <div className="p-6 bg-white rounded-lg shadow-md border">
         <p>
           Do you want to delete{" "}
-          <span className="font-semibold">
+          <span className="font-medium">
             {delConfirm.mode === "deleteSingle" && delPopup && delPopup.title}
             {delConfirm.mode === "deleteAll" && "ALL"}
           </span>
@@ -32,7 +32,7 @@ const Confirmation = ({ delPopup }) => {
             No
           </button>
           <button
-            className="text-indigo-500 font-semibold cursor-pointer"
+            className="text-indigo-500 font-medium cursor-pointer"
             onClick={() => {
               if (delConfirm.mode === "deleteSingle") {
                 dispatch({

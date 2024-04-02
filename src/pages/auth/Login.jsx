@@ -10,7 +10,7 @@ const Login = () => {
         <img src={logo} alt="logo" width={50} className="mb-6" />
         <div className=" flex justify-between gap-6 items-start ">
           <div className="w-1/2 flex flex-col gap-3">
-            <h2 className="text-xl font-semibold md:text-3xl">
+            <h2 className="text-xl font-medium md:text-3xl">
               Login
               <span className="text-neutral-400"> as a user</span>
             </h2>

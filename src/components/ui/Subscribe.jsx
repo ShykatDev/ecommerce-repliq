@@ -1,12 +1,12 @@
 const Subscribe = ({ role }) => {
-  if (role === "admin") {
+  if (role) {
     return null;
   }
   return (
     <div className="container my-10">
       <div className=" bg-gradient-to-r from-neutral-900 to-neutral-700 rounded-2xl py-16 px-10 flex justify-between md:items-end flex-col md:flex-row gap-10">
         <div className="">
-          <h1 className="text-5xl font-semibold text-gray-100">
+          <h1 className="text-5xl font-medium text-gray-100">
             Ready to Get <br /> Our New Stuff?
           </h1>
 

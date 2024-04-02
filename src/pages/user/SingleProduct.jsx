@@ -65,7 +65,7 @@ const SingleProduct = () => {
           </p>
         )}
         <div className="w-full flex justify-between items-center">
-          <h2 className="font-semibold text-title text-3xl">{title}</h2>
+          <h2 className="font-medium text-title text-3xl">{title}</h2>
           <p className="py-2 text-center rounded-md  text-lime-600 font-bold text-2xl">
             {price} tk
           </p>
@@ -94,7 +94,7 @@ const SingleProduct = () => {
           ) : (
             <button
               onClick={handleAddToCart}
-              className="w-1/2 py-2 bg-lime-400 rounded-md flex items-center justify-center gap-2 font-semibold"
+              className="w-1/2 py-2 bg-lime-400 rounded-md flex items-center justify-center gap-2 font-medium"
             >
               <FaCartPlus /> Add to cart
             </button>
@@ -103,7 +103,7 @@ const SingleProduct = () => {
           <Link
             to="/checkout"
             onClick={() => handleCheckout(product)}
-            className="flex items-center justify-center rounded-md gap-2 w-1/2 bg-title font-semibold text-neutral-200"
+            className="flex items-center justify-center rounded-md gap-2 w-1/2 bg-title font-medium text-neutral-200"
           >
             <FaBagShopping />
             <span>Buy Now</span>

@@ -1,15 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import Field from "../common/Field";
-import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context";
+import { useForm } from "react-hook-form";
+import Field from "../common/Field";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-const RegisterForm = () => {
+const AddCusmoterForm = () => {
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const { saveRegisterData } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -22,20 +22,23 @@ const RegisterForm = () => {
     setTimeout(() => {
       saveRegisterData(formData);
       setLoading(false);
-      toast.success("Your account has been created");
-      navigate("/login");
+      toast.success("New customer created");
+      navigate("/dashboard/customers");
     }, 1000);
   };
 
   return (
-    <form onSubmit={handleSubmit(onRegister)}>
+    <form
+      onSubmit={handleSubmit(onRegister)}
+      className="bg-white bg-opacity-50 p-6  border border-borderColor"
+    >
       <Field regId="fName" error={errors.fName}>
         <input
           {...register("fName", { required: "First name is required" })}
           type="text"
           placeholder="First Name"
           name="fName"
-          className={`input-field ${errors.fName && "border-red-500"}`}
+          className={`input-field2 ${errors.fName && "border-red-500"}`}
         />
       </Field>
       <Field regId="lName" error={errors.lName}>
@@ -44,7 +47,7 @@ const RegisterForm = () => {
           type="text"
           placeholder="Last Name"
           name="lName"
-          className={`input-field ${errors.lName && "border-red-500"}`}
+          className={`input-field2 ${errors.lName && "border-red-500"}`}
         />
       </Field>
       <Field regId="number" error={errors.number}>
@@ -59,7 +62,7 @@ const RegisterForm = () => {
           type="number"
           placeholder="Mobile Number"
           name="number"
-          className={`input-field ${errors.number && "border-red-500"}`}
+          className={`input-field2 ${errors.number && "border-red-500"}`}
         />
       </Field>
 
@@ -75,20 +78,14 @@ const RegisterForm = () => {
           type="password"
           placeholder="Enter Password"
           name="password"
-          className={`input-field ${errors.password && "border-red-500"}`}
+          className={`input-field2 ${errors.password && "border-red-500"}`}
         />
       </Field>
 
       <div className="flex justify-end items-center gap-3">
-        <Link
-          to="/login"
-          className="px-6 py-2.5 mt-3 rounded-full hover:bg-brandLight duration-300"
-        >
-          Already have an account
-        </Link>
         <button
           type="submit"
-          className="px-6 py-2.5 mt-3 bg-brand rounded-full text-white font-medium hover:bg-brandHover duration-300"
+          className="px-6 py-2.5 mt-3 bg-title rounded-full text-white font-medium hover:bg-brandHover duration-300"
         >
           {loading ? (
             <span className="flex items-center gap-2">
@@ -103,4 +100,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default AddCusmoterForm;

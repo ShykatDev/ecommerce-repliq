@@ -50,7 +50,7 @@ const Cart = () => {
   if (state.cart.length === 0) {
     content = (
       <div className="container mt-[10vh] min-h-[20vh]">
-        <h2 className="text-4xl font-semibold mb-6">Cart Items</h2>
+        <h2 className="text-4xl font-medium mb-6">Cart Items</h2>
 
         <p className="text-neutral-400">No item found in the cart!</p>
       </div>
@@ -61,12 +61,12 @@ const Cart = () => {
         {/* Delete confirmation */}
         <Confirmation delPopup={delPopup} />
 
-        <h2 className="text-4xl font-semibold mb-6">Cart Items</h2>
+        <h2 className="text-4xl font-medium mb-6">Cart Items</h2>
 
         <div className="flex flex-col-reverse lg:flex-row gap-10 items-start">
           <div className="w-full lg:w-[80%] rounded-xl">
             <div className="border rounded-xl flex justify-between items-center">
-              <p className="font-semibold">
+              <p className="font-medium">
                 Total Item:{" "}
                 <span className="text-lime-500 text-xl">
                   {state.cart.length}
@@ -105,10 +105,10 @@ const Cart = () => {
             </div>
           </div>
           <div className="w-full sm:w-1/2 lg:w-[20%] border p-3 rounded-lg">
-            <p className="text-xl font-semibold">Summury Order</p>
+            <p className="text-xl font-medium">Summury Order</p>
             <div className="flex justify-between items-center my-3">
               <p>Subtotal:</p>
-              <p className="text-xl font-semibold">$ {totalPrice}</p>
+              <p className="text-xl font-medium">$ {totalPrice}</p>
             </div>
 
             <Link

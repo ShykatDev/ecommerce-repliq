@@ -30,7 +30,7 @@ const CartItem = ({
           <div className="flex items-center gap-2">
             {tag === "new" && (
               <div className="flex gap-2">
-                <small className="px-4 py-1 rounded-full font-semibold border bg-lime-300">
+                <small className="px-4 py-1 rounded-full font-medium border bg-lime-300">
                   {tag}
                 </small>
 
@@ -43,7 +43,7 @@ const CartItem = ({
             </p>
           </div>
 
-          <Link to={`/product/${id}`} className="pt-3 font-semibold">
+          <Link to={`/product/${id}`} className="pt-3 font-medium">
             {title}
           </Link>
           <p className="text-text line-clamp-1 w-3/5">{description}</p>
@@ -52,7 +52,7 @@ const CartItem = ({
       <div className="md:text-end flex md:flex-col justify-between md:justify-start mt-6 md:mt-0">
         <div>
           <small>Price</small>
-          <p className="font-semibold text-xl">{price * cartQuantity} Tk</p>
+          <p className="font-medium text-xl">{price * cartQuantity} Tk</p>
         </div>
 
         <div className="flex items-center gap-4 mt-2">

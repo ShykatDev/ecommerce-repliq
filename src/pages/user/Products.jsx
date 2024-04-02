@@ -24,14 +24,14 @@ const Products = () => {
 
   return (
     <div className="container mt-[10vh]">
-      <h2 className="text-xl font-semibold md:text-3xl">
+      <h2 className="text-xl font-medium md:text-3xl">
         All Products
         <span className="text-neutral-400"> Get the products you need</span>
       </h2>
 
       <div className="mt-6 flex justify-between items-start">
         <div className="w-[20%]">
-          <h2 className="text-xl font-semibold">Filters</h2>
+          <h2 className="text-xl font-medium">Filters</h2>
           <ul className="mt-3">
             <li
               onClick={() => setFilterKey("all")}

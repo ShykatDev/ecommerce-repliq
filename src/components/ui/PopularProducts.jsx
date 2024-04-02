@@ -5,7 +5,7 @@ const PopularProducts = () => {
   const newProducts = products.filter((product) => product.tag === "new");
   return (
     <div className="container mt-10">
-      <h2 className="text-xl font-semibold md:text-3xl">
+      <h2 className="text-xl font-medium md:text-3xl">
         New Products
         <span className="text-neutral-400"> Get the products you need</span>
       </h2>

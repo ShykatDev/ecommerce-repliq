@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div className="p-3 flex flex-col gap-1">
-          <p className="text-lg font-semibold text-lime-600"> {price} Tk</p>
+          <p className="text-lg font-medium text-lime-600"> {price} Tk</p>
 
           <Link
             to={`/product/${id}`}

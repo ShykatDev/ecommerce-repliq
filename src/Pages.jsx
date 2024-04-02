@@ -15,18 +15,34 @@ import AdminLogin from "./pages/auth/AdminLogin";
 import Dashboard from "./pages/admin/Dashboard";
 import { useContext } from "react";
 import { AuthContext } from "./context";
+import AdminRoutes from "./components/common/AdminRoutes";
+import CustomerList from "./pages/admin/CustomerList";
+import ProductList from "./pages/admin/ProductList";
+import OrderList from "./pages/admin/OrderList";
 
 const Pages = () => {
   const { showNav } = useContext(AuthContext);
 
   return (
     <>
-      <Navbar role={showNav ? "user" : "admin"} />
+      <Navbar role={!showNav} />
       <ScrollToTop />
+
       <Routes>
+        {/* Private routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/checkout" element={<Checkout />} />
         </Route>
+
+        {/* Admin routes */}
+        <Route element={<AdminRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/customers" element={<CustomerList />} />
+          <Route path="/dashboard/products" element={<ProductList />} />
+          <Route path="/dashboard/orders" element={<OrderList />} />
+        </Route>
+
+        {/* Public routes */}
         <Route path="/" element={<Homepage />} exact />
         <Route path="/login" element={<Login />} />
         <Route path="/admin-login" element={<AdminLogin />} />
@@ -34,11 +50,10 @@ const Pages = () => {
         <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
 
-      <Subscribe role={showNav ? "user" : "admin"} />
-      <Footer role={showNav ? "user" : "admin"} />
+      <Subscribe role={!showNav} />
+      <Footer role={!showNav} />
     </>
   );
 };

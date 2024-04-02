@@ -77,7 +77,7 @@ const LoginForm = () => {
         >
           Create account
         </Link>
-        <button className="px-6 py-2.5 mt-3 bg-brand rounded-full text-white font-semibold hover:bg-brandHover duration-300">
+        <button className="px-6 py-2.5 mt-3 bg-brand rounded-full text-white font-medium hover:bg-brandHover duration-300">
           {loading ? (
             <span className="flex items-center gap-2">
               <AiOutlineLoading3Quarters className="animate-spin" /> Loading
