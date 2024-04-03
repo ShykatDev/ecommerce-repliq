@@ -29,8 +29,8 @@ const Products = () => {
         <span className="text-neutral-400"> Get the products you need</span>
       </h2>
 
-      <div className="mt-6 flex justify-between items-start">
-        <div className="w-[20%]">
+      <div className="mt-6 flex flex-col md:flex-row gap-y-6 justify-between items-start">
+        <div className="md:w-[20%]">
           <h2 className="text-xl font-medium">Filters</h2>
           <ul className="mt-3">
             <li
@@ -48,7 +48,7 @@ const Products = () => {
               }`}
             >
               New items{" "}
-              <span className="hidden sm:block text-sm px-2 py-1 bg-lime-300 text-title rounded-md font-medium">
+              <span className="text-sm px-2 py-1 bg-lime-300 text-title rounded-md font-medium">
                 New
               </span>
             </li>
@@ -61,7 +61,7 @@ const Products = () => {
             </p>
           </div>
         ) : (
-          <div className="w-[80%] grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+          <div className="md:w-[80%] grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {filterProducts.map((el, i) => {
               return <ProductCard key={i} product={el} />;
             })}

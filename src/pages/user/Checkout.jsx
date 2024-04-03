@@ -67,14 +67,14 @@ const Checkout = () => {
     <>
       {confirm && (
         <div className="fixed w-screen h-screen top-0 left-0 z-50 flex justify-center items-center bg-white bg-opacity-50 backdrop-blur-md">
-          <div className="px-20 py-10 bg-white rounded-lg border border-borderColor">
+          <div className="p-6 md:px-20 md:py-10 bg-white rounded-lg border border-borderColor">
             <div className="flex items-center gap-2 text-3xl">
               <FaCircleCheck className="text-green-500" />
               <h2 className="font-medium">Order Received</h2>
             </div>
             <div className="mt-4">
-              <h2>Shipping Address</h2>
-              <table className="w-full mt-5 text-sm text-left rtl:text-right text-gray-600 border border-borderColor">
+              <h2 className="hidden md:block">Shipping Address</h2>
+              <table className="hidden md:block overflow-x-auto mt-5 text-sm text-left rtl:text-right text-gray-600 border border-borderColor">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
                     <th scope="col" className="px-6 py-3">
@@ -101,7 +101,7 @@ const Checkout = () => {
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex justify-end">
+            <div className="mt-6 flex justify-center md:justify-end">
               <p
                 onClick={() => navigate("/")}
                 className="px-4 py-1 bg-red-500 rounded-md text-white font-medium cursor-pointer"
@@ -113,8 +113,8 @@ const Checkout = () => {
         </div>
       )}
       <div className="container mt-[10vh] min-h-[70vh] flex justify-center items-center">
-        <div className="w-4/5 bg-white bg-opacity-50 border border-borderColor rounded-xl overflow-hidden p-6 flex flex-col md:flex-row justify-between items-start gap-10">
-          <div className="w-full md:w-1/2 pr-6 border-r border-borderColor">
+        <div className="md:w-4/5 bg-white bg-opacity-50 border border-borderColor rounded-xl overflow-hidden p-6 flex flex-col md:flex-row justify-between items-start gap-10">
+          <div className="w-full md:w-1/2 pr-6 border-b pb-10 md:pb-0 md:border-r border-neutral-500">
             <div className="flex items-center gap-3 mb-10">
               <img src={logo} alt="logo" width={25} />
               <p className="text-xl font-medium">Megamart</p>

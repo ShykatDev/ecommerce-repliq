@@ -11,7 +11,7 @@ const AdminRoutes = () => {
       {!showNav ? (
         <>
           <div className="container mt-[5vh] ">
-            <div className="bg-white bg-opacity-50 h-[90vh] rounded-xl border border-borderColor flex justify-between items-start overflow-hidden">
+            <div className="bg-white bg-opacity-50 h-[90vh] overflow-y-auto rounded-xl border border-borderColor flex justify-between items-start overflow-hidden">
               <Sidebar />
               <div className="w-4/5 p-6">
                 <Outlet />

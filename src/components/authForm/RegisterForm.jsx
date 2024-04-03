@@ -82,7 +82,7 @@ const RegisterForm = () => {
       <div className="flex justify-end items-center gap-3">
         <Link
           to="/login"
-          className="px-6 py-2.5 mt-3 rounded-full hover:bg-brandLight duration-300"
+          className="px-6 py-2.5 mt-3 rounded-full hover:bg-brandLight duration-300 text-xs md:text-base"
         >
           Already have an account
         </Link>
@@ -91,11 +91,11 @@ const RegisterForm = () => {
           className="px-6 py-2.5 mt-3 bg-brand rounded-full text-white font-medium hover:bg-brandHover duration-300"
         >
           {loading ? (
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-sm md:text-base">
               <AiOutlineLoading3Quarters className="animate-spin" /> Loading
             </span>
           ) : (
-            "Register"
+            <span className=" text-sm md:text-base">Register</span>
           )}
         </button>
       </div>

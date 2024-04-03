@@ -11,8 +11,8 @@ const CustomerList = () => {
     setUsers(registerUser);
   }, [registerUser]);
   return (
-    <div className="w-full flex justify-between items-start gap-10">
-      <div className="w-1/2">
+    <div className="w-full flex flex-col-reverse md:flex-row justify-between items-start gap-10">
+      <div className="w-full md:w-1/2">
         <h2 className="mb-6 font-medium text-lg">Customer Lists</h2>
         <table className="w-full mt-5 text-sm text-left text-gray-600 border border-borderColor rounded-lg">
           <thead className="text-xs text-gray-700 uppercase bg-white bg-opacity-50 ">
@@ -40,7 +40,7 @@ const CustomerList = () => {
         </table>
       </div>
 
-      <div className="w-1/2 ">
+      <div className="w-full md:w-1/2 ">
         <h2 className="mb-6 font-medium text-lg">Add new customer</h2>
 
         <AddCusmoterForm />

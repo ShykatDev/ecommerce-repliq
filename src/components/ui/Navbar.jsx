@@ -48,17 +48,23 @@ const Navbar = ({ role }) => {
         <div className="container flex items-center justify-between">
           <div className="flex items-center gap-10">
             <Link to="/" className="logo flex items-center gap-2">
-              <img src={logo} alt="logo" width={30} />
-              <p className="font-bold text-xl">
+              <img src={logo} alt="logo" className="w-8" />
+              <p className="font-bold text-xl hidden lg:block">
                 Mega<span className="text-lime-600 italic">mart</span>
               </p>
             </Link>
 
             <ul className="flex items-center gap-4">
-              <NavLink to="/" className="font-medium text-neutral-400">
+              <NavLink
+                to="/"
+                className="text-sm lg:text-base font-medium text-neutral-400"
+              >
                 Home
               </NavLink>
-              <NavLink to="/products" className="font-medium text-neutral-400">
+              <NavLink
+                to="/products"
+                className="text-sm lg:text-base font-medium text-neutral-400"
+              >
                 Products
               </NavLink>
             </ul>
@@ -71,7 +77,7 @@ const Navbar = ({ role }) => {
                 value={searchKey}
                 onChange={handleSearch}
                 placeholder="Search here..."
-                className="border border-borderColor px-4 py-2 w-[20rem] rounded-md outline-none"
+                className="hidden lg:block border border-borderColor px-4 py-2 w-[20rem] rounded-md outline-none"
               />
             </div>
             <ul className="flex items-center gap-6">
@@ -92,7 +98,7 @@ const Navbar = ({ role }) => {
                   />
 
                   <div className="absolute opacity-0 invisible top-1/2 z-10 right-0 w-[12rem] duration-300 ease-in-out group-hover:opacity-100 group-hover:top-full group-hover:visible">
-                    <div className="mt-3 rounded-md border bg-white border-borderColor">
+                    <div className="mt-3 rounded-md border bg-white border-borderColor overflow-hidden">
                       <div className="p-3 text-right">
                         <p className="text-base font-medium">
                           {loginUser?.fName} {loginUser?.lName}
@@ -113,9 +119,9 @@ const Navbar = ({ role }) => {
               ) : (
                 <Link
                   to="/login"
-                  className="flex items-center gap-2 px-3 py-2 bg-neutral-900 rounded-md text-white"
+                  className="flex items-center gap-2 p-2 md:px-3 md:py-2 bg-neutral-900 rounded-md text-white"
                 >
-                  <IoLogIn /> <span>Login</span>
+                  <IoLogIn /> <span className="hidden md:block">Login</span>
                 </Link>
               )}
             </ul>
