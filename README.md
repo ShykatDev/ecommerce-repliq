@@ -1,9 +1,12 @@
 # eCommerce-repliq
+
 In this react e-commerce project I have used the packages below:
-  -react-hook-form
-  -react-hot-toast
-  -react-icons
-  -react-router-dom
+
+Packages:
+1. react-hook-form (Better from control)
+2. react-hot-toast (Better showing notifications)
+3. react-icons (Better design)
+4. react-router-dom (Multipage routing)
 
 Features:
 1. User and Admin can log in within the same application
